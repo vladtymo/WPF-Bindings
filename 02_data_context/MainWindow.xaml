@@ -1,0 +1,59 @@
+﻿<Window x:Class="_02_data_context.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_02_data_context"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="302.081" Width="452.982">
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock TextAlignment="Center" Grid.ColumnSpan="2" Padding="10" FontSize="24">
+                Hello dear, <Run Text="{Binding Path=MyUser1.Name}"/>
+            </TextBlock>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" TextAlignment="Center" Padding="5">
+                Email address: <Run Text="{Binding Path=MyUser1.Email}"/>
+            </TextBlock>
+
+            <Label Grid.Row="2">Name:</Label>
+            <TextBox x:Name="txtBox" Text="{Binding Path=MyUser1.Name, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1"></TextBox>
+            <Label Grid.Row="3">Email:</Label>
+            <TextBox Text="{Binding Path=MyUser1.Email}" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1"></TextBox>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock TextAlignment="Center" Grid.ColumnSpan="2" Padding="10" FontSize="24">
+                Hello dear, <Run Text="{Binding Path=MyUser2.Name}"/>
+            </TextBlock>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" TextAlignment="Center" Padding="5">
+                Email address: <Run Text="{Binding Path=MyUser2.Email}"/>
+            </TextBlock>
+
+            <Label Grid.Row="2">Name:</Label>
+            <TextBox Text="{Binding Path=MyUser2.Name, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Grid.Row="2" Grid.Column="1"></TextBox>
+            <Label Grid.Row="3">Email:</Label>
+            <TextBox Text="{Binding Path=MyUser2.Email}" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="1"></TextBox>
+        </Grid>
+    </StackPanel>
+</Window>
