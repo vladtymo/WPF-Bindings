@@ -24,6 +24,7 @@ namespace _03_contact_list
         {
             InitializeComponent();
 
+            // View -> ViewModel
             this.DataContext = viewModel;
         }
 
