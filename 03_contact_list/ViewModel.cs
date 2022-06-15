@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace _03_contact_list
 {
@@ -22,6 +23,16 @@ namespace _03_contact_list
         {
             if (SelectedContact != null)
                 contacts.Remove(SelectedContact);
+        }
+        public void DublicateSelectedContact()
+        {
+            if (SelectedContact != null)
+                contacts.Add(SelectedContact.Clone());
+        }
+        public void DeleteAllContacts()
+        {
+            if (contacts.Any())
+                contacts.Clear();
         }
     }
 }

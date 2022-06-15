@@ -16,6 +16,7 @@
         <ListBox Name="contactListBox"
                  ItemsSource="{Binding Path=Contacts}"
                  SelectedItem="{Binding Path=SelectedContact, Mode=OneWayToSource}"
+                 DisplayMemberPath="FullName"
                  Grid.Column="0" Background="#FF92CEE9"
                  HorizontalContentAlignment="Stretch">
         </ListBox>
@@ -35,8 +36,9 @@
             <TextBox Text="{Binding Path=SelectedContact.Phone}" Margin="20,0"></TextBox>
             <Label HorizontalAlignment="Left" Margin="20,0">Is Male:</Label>
             <CheckBox IsChecked="{Binding Path=SelectedContact.IsMale}" Margin="20,0"></CheckBox>
-            <Button Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
+            <Button Click="Button_Click_2" Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
             <Button Click="Button_Click" Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
+            <Button Click="Button_Click_1"  Background="PaleVioletRed" Margin="20,0">Delete All Contacts</Button>
 
         </StackPanel>
     </Grid>

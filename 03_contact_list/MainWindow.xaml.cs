@@ -31,5 +31,15 @@ namespace _03_contact_list
         {
             viewModel.DeleteSelectedContact();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            viewModel.DeleteAllContacts();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            viewModel.DublicateSelectedContact();
+        }
     }
 }
