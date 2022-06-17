@@ -3,43 +3,58 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_03_contact_list"
+        xmlns:local="clr-namespace:_03_contact_list" d:DataContext="{d:DesignInstance Type=local:ViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="359.615" Width="742.949">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition MinWidth="100" Width="*"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition MinWidth="100" Width="*"/>
-        </Grid.ColumnDefinitions>
-        
-        <ListBox Name="contactListBox"
-                 ItemsSource="{Binding Path=Contacts}"
-                 SelectedItem="{Binding Path=SelectedContact, Mode=OneWayToSource}"
-                 DisplayMemberPath="FullName"
-                 Grid.Column="0" Background="#FF92CEE9"
-                 HorizontalContentAlignment="Stretch">
-        </ListBox>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding DublicateCmd}" Modifiers="Ctrl" Key="D"/>
+        <KeyBinding Command="{Binding RemoveCmd}" Key="Delete"/>
+        <KeyBinding Command="{Binding ClearCmd}" Modifiers="Ctrl" Key="W"/>
+    </Window.InputBindings>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Edit">
+                <MenuItem Command="{Binding DublicateCmd}" Header="Dublicate" InputGestureText="Ctrl+D"/>
+                <MenuItem Command="{Binding RemoveCmd}" Header="Remove" InputGestureText="Del"/>
+                <MenuItem Command="{Binding ClearCmd}" Header="Clear" InputGestureText="Ctrl+W"/>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition MinWidth="100" Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition MinWidth="100" Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <GridSplitter HorizontalAlignment="Center"
-                      VerticalAlignment="Stretch"
-                      Width="2" Grid.Column="1"/>
+            <ListBox Name="contactListBox"
+                     ItemsSource="{Binding Path=Contacts}"
+                     SelectedItem="{Binding Path=SelectedContact, Mode=OneWayToSource}"
+                     DisplayMemberPath="FullName"
+                     Grid.Column="0" Background="#FF92CEE9"
+                     HorizontalContentAlignment="Stretch">
+            </ListBox>
 
-        <StackPanel Grid.Column="2" Background="#FF4F7694">
-            <Label HorizontalAlignment="Center">Name</Label>
-            <TextBox Text="{Binding Path=SelectedContact.Name}" Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Center">Surname</Label>
-            <TextBox Text="{Binding Path=SelectedContact.Surname}" Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Center">Age</Label>
-            <TextBox Text="{Binding Path=SelectedContact.Age}" Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Center">Phone</Label>
-            <TextBox Text="{Binding Path=SelectedContact.Phone}" Margin="20,0"></TextBox>
-            <Label HorizontalAlignment="Left" Margin="20,0">Is Male:</Label>
-            <CheckBox IsChecked="{Binding Path=SelectedContact.IsMale}" Margin="20,0"></CheckBox>
-            <Button Click="Button_Click_2" Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
-            <Button Click="Button_Click" Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
-            <Button Click="Button_Click_1"  Background="PaleVioletRed" Margin="20,0">Delete All Contacts</Button>
+            <GridSplitter HorizontalAlignment="Center"
+                          VerticalAlignment="Stretch"
+                          Width="2" Grid.Column="1"/>
 
-        </StackPanel>
-    </Grid>
+            <StackPanel Grid.Column="2" Background="#FF4F7694">
+                <Label HorizontalAlignment="Center">Name</Label>
+                <TextBox Text="{Binding Path=SelectedContact.Name}" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Center">Surname</Label>
+                <TextBox Text="{Binding Path=SelectedContact.Surname}" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Center">Age</Label>
+                <TextBox Text="{Binding Path=SelectedContact.Age}" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Center">Phone</Label>
+                <TextBox Text="{Binding Path=SelectedContact.Phone}" Margin="20,0"></TextBox>
+                <Label HorizontalAlignment="Left" Margin="20,0">Is Male:</Label>
+                <CheckBox IsChecked="{Binding Path=SelectedContact.IsMale}" Margin="20,0"></CheckBox>
+
+                <Button Command="{Binding DublicateCmd}" Background="#FF7EC97E" Margin="20,20,20,5">Create Contact Copy</Button>
+                <Button Command="{Binding RemoveCmd}" Background="PaleVioletRed" Margin="20,0">Delete Selected Contact</Button>
+                <Button Command="{Binding ClearCmd}" Background="PaleVioletRed" Margin="20,0">Delete All Contacts</Button>
+
+            </StackPanel>
+        </Grid>
+    </DockPanel>
 </Window>

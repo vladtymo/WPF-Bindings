@@ -28,19 +28,19 @@ namespace _03_contact_list
             this.DataContext = viewModel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            viewModel.DeleteSelectedContact();
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //    viewModel.DeleteSelectedContact();
+        //}
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            viewModel.DeleteAllContacts();
-        }
+        //private void Button_Click_1(object sender, RoutedEventArgs e)
+        //{
+        //    viewModel.DeleteAllContacts();
+        //}
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            viewModel.DublicateSelectedContact();
-        }
+        //private void Button_Click_2(object sender, RoutedEventArgs e)
+        //{
+        //    viewModel.DublicateSelectedContact();
+        //}
     }
 }
